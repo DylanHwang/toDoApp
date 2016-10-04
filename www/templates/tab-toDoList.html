@@ -1,0 +1,26 @@
+
+<ion-view view-title="오늘의 목록"> 
+ <!--  <ion-nav-buttons side="primary">
+      <ion-header-bar class="bar-royal">        
+        <button class="button button-icon" ng-click="newTask()">
+           <i class="ion-compose icon"></i>
+        </button>
+      </ion-header-bar>      
+    </ion-nav-buttons>-->
+    <ion-nav-buttons side="right" side="primary">
+        <a class="button button-icon icon ion-plus" href="#/tab/newTask"></a>
+    </ion-nav-buttons>  
+    <ion-content>      
+         <ion-list>
+         <ion-item ng-repeat="task in tasks"
+                class="item-icon-right"
+                ng-class="{complete: task.completed}"
+                ng-click="task.completed = !task.completed">
+                    {{task.title}}  <p>  {{task.time}}분 </p>
+            <i class="icon ion-ios-arrow-left"></i>
+            <ion-option-button class="button-assertive" ng-click="tasks.splice($index, 1)">Delete</ion-option-button>
+            <ion-option-button class="button-energized" ng-click="edit(task)"> Edit</ion-option-button> 
+          </ion-item>
+          </ion-list>
+    </ion-content>  
+</ion-view>
